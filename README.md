@@ -13,10 +13,14 @@
 
 ### Установка и запуск
 
-- Клонируем репозиторий `git clone `
-- Устанавливаем зависимости `pip install -r requirements.txt`
-- Создаем `.env` файл и заполняем его по образцу `.env.example`
-- Создаем docker-образ `docker build -t 'docker_image_name' .`
-- Запускаем контейнеры `docker compose up`
-- Переходим по ссылке http://localhost/docs и попадаем в документацию проекта
+- Клонируйте репозиторий `git clone https://github.com/AlexeyDemidow/RetailCRM_task.git`
+- Установите зависимости `pip install -r requirements.txt`
+- Зарегистрируйте тестовую систему RetailCRM
+- Войдите в систему и создайте API ключ для интеграции: 
+  - Перейдите в меню Настройки → Интеграция → Добавить.
+  - Сгенерируйте новый API ключ, который будет использоваться для аутентификации запросов.
+- Создайте `.env` файл и заполняем его по образцу `.env.example` добавив свой API ключ RetailCRM.
+- Создайте docker-образ `docker build -t 'docker_image_name' .`
+- Запустите контейнеры `docker compose up`
+- Перейдите по ссылке http://localhost/docs для получения доступа к документации проекта.
 
