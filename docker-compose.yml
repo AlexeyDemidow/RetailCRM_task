@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  retail_crm_task:
+    image: retail_crm_task:latest
+    container_name: 'retail_crm_task'
+    restart: always
+
+    env_file:
+      - /.env
+    environment:
+      - X-API-KEY=${X_API_KEY}
+    command: ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+
+  nginx:
+    container_name: nginx
+    working_dir: /retail_crm_task
+    image: nginx:stable-alpine
+    restart: always
+    ports:
+      - "80:80"
+    volumes:
+      - ./docker/nginx/:/etc/nginx/conf.d:ro
+    depends_on:
+      - retail_crm_task
